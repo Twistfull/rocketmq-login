@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rocketmq.demo.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="com.rocketmq.demo.model.User">
+        <result column="User" jdbcType="VARCHAR" property="user"/>
+        <result column="Password" jdbcType="VARCHAR" property="password"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    `User`, `Password`
+  </sql>
+    <insert id="insert" parameterType="com.rocketmq.demo.model.User">
+    insert into user (`User`, `Password`)
+    values (#{user,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+  </insert>
+    <select id="selectByPrimaryKey" resultType="com.rocketmq.demo.model.User">
+        select * from USER
+    </select>
+</mapper>
